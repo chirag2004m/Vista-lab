@@ -89,6 +89,7 @@ export default function ContactPage() {
             </div>
           ))}
         </div>
+        
 
         <div style={{ borderRadius: 10, overflow: 'hidden', marginBottom: 32, border: '1px solid rgba(255,255,255,0.07)', flexShrink: 0 }}>
           <iframe
@@ -119,12 +120,7 @@ export default function ContactPage() {
                 </div>
               ))}
             </div>
-            <div>
-              <label style={{ fontFamily: 'Space Mono, monospace', fontSize: 9, color: 'rgba(255,255,255,0.25)', letterSpacing: '0.15em', textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>Category</label>
-              <select name="category" value={form.category} onChange={handleChange} style={{ ...inputStyle, cursor: 'pointer' }}>
-                {['General Inquiry','Research Collaboration','PhD Application','Postdoc Application','Internship','Media / Press','Other'].map(c => <option key={c} value={c}>{c}</option>)}
-              </select>
-            </div>
+          
             <div>
               <label style={{ fontFamily: 'Space Mono, monospace', fontSize: 9, color: 'rgba(255,255,255,0.25)', letterSpacing: '0.15em', textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>Subject</label>
               <input name="subject" required placeholder="Brief subject..." value={form.subject} onChange={handleChange} style={inputStyle}
@@ -138,7 +134,7 @@ export default function ContactPage() {
                 onBlur={e => (e.target as HTMLElement).style.borderColor = 'rgba(255,255,255,0.1)'} />
             </div>
             <button type="submit" disabled={status === 'loading'}
-              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '12px', borderRadius: 8, border: 'none', fontSize: 13, fontFamily: 'Space Mono, monospace', fontWeight: 700, cursor: 'pointer', background: '#fff', color: '#000', marginTop: 4 }}>
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '12px', borderRadius: 8, border: 'none', fontSize: 13, fontFamily: 'Space Mono, monospace', fontWeight: 700, cursor: 'pointer', background: 'var(--accent)', color: '#000', marginTop: 4 }}>
               <Send size={13} /> {status === 'loading' ? 'Sending...' : 'Send Message'}
             </button>
           </form>
